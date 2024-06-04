@@ -1,0 +1,130 @@
+@import url('https://fonts.cdnfonts.com/css/d-din');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    max-width: 100%;
+}
+
+.card {
+    width: 293px;
+    height: 588px;
+    padding: 40px 0 0 0;
+    position: relative;
+    opacity: 0;
+    flex: 0 0 auto; /* Added to prevent card stretching */
+}
+
+.card-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.9);
+    transition: filter 0.3s ease;
+}
+
+.card-image:hover img {
+    filter: grayscale(100%) blur(10px);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: #fff;
+    width: 80%;
+}
+
+.read-more {
+    display: none;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #01C7E8;
+    transition: color 0.3s, transform 0.3s ease;
+}
+
+.card-image:hover .read-more {
+    display: block;
+    transform: translateY(-10px);
+}
+
+.read-more:hover {
+    color: #ccc;
+    transform: translateY(10px);
+}
+
+h1 {
+    font-family: 'D-DIN Condensed', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 38px;
+    text-align: left;
+    margin: 0;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.02px;
+    text-align: left;
+    margin: 10px 0 0;
+}
+
+.card-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.card-image:hover::before {
+    opacity: 1;
+}
+
+/* Animation */
+.card {
+    animation: fadeIn 0.9s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .gallery {
+        flex-direction: column;
+    }
+}
